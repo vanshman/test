@@ -33,8 +33,10 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
+    var provider;
+
     function signin(){
-        var provider = new firebase.auth.GoogleAuthProvider();
+        provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth()
   .signInWithPopup(provider)
   .then((result) => {
@@ -54,6 +56,7 @@
     var email = error.email;
     // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
+    console.log(errorMessage)
     // ...
   });
 
